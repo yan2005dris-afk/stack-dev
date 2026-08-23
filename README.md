@@ -10,7 +10,7 @@ Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / F
 - **[Bruno](https://www.usebruno.com/)**: Cliente de APIs offline-first, seguro y Git-friendly (guarda colecciones en archivos planos).
 - **[Obsidian](https://obsidian.md/)**: Entorno de gestión de conocimiento personal, documentación técnica y notas en Markdown con enlaces bidireccionales.
 - **[Zen Browser](https://zen-browser.app/)**: Navegador web moderno basado en Firefox, enfocado en privacidad, rendimiento, pestañas verticales y espacios de trabajo.
-- **[Ghostty](https://ghostty.org/) / [Heerd](https://github.com/heerd)**: Emulador de terminal acelerado por GPU con renderizado tipográfico de alta fidelidad.
+- **[Ghostty](https://ghostty.org/) / [Heerd](https://github.com/herdrdev/herdr)**: Emulador de terminal acelerado por GPU con renderizado tipográfico de alta fidelidad.
 
 ---
 
