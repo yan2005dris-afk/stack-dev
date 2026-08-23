@@ -1,6 +1,13 @@
 # 🛠️ Stack Dev - Entorno de Desarrollo, Dotfiles & Tooling
 
-Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / Fedora / Ubuntu), optimizado para arquitectura de software full-stack (NestJS, TypeScript, Angular, PostgreSQL, Docker, Neovim/LazyVim y Asistentes de IA).
+Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado para arquitectura de software full-stack (NestJS, TypeScript, Angular, PostgreSQL, Docker, Neovim/LazyVim y Asistentes de IA).
+
+---
+
+## 🐧 Sistemas Operativos Recomendados (Top Picks)
+
+- **[Ryoku OS](https://github.com/gentleman-programming)** (Basado en Arch Linux): Distribución rolling release altamente optimizada, con acceso completo a AUR, paquetería de vanguardia y entorno configurado para desarrollo de software de máximo rendimiento.
+- **[Fedora Workstation / Silverblue](https://fedoraproject.org/)**: El estándar de estabilidad moderna, kernels actualizados de primera línea, excelente integración de Wayland y soporte empresarial nativo para contenedores (Podman/Docker).
 
 ---
 
