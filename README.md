@@ -1,51 +1,70 @@
-# 🛠️ Stack Dev - Entorno y Herramientas de Desarrollo
+# 🛠️ Stack Dev - Entorno de Desarrollo, Dotfiles & Tooling
 
-Catálogo integral de herramientas de terminal, utilidades de base de datos, inspección de redes, contenedores y automatización local para desarrollo moderno full-stack (NestJS, TypeScript, Angular, PostgreSQL, Docker, Arch Linux).
+Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / Fedora / Ubuntu), optimizado para arquitectura de software full-stack (NestJS, TypeScript, Angular, PostgreSQL, Docker, Neovim/LazyVim y Asistentes de IA).
 
 ---
 
-## 📦 Catálogo de Herramientas
+## 💻 Aplicaciones de Escritorio & GUI
+
+- **[DbGate](https://dbgate.org/)**: Cliente gráfico ágil y ligero para SQL y NoSQL (PostgreSQL, MySQL, Redis, MongoDB, SQLite).
+- **[Bruno](https://www.usebruno.com/)**: Cliente de APIs offline-first, seguro y Git-friendly (guarda colecciones en archivos planos).
+- **[Obsidian](https://obsidian.md/)**: Entorno de gestión de conocimiento personal, documentación técnica y notas en Markdown con enlaces bidireccionales.
+- **[Zen Browser](https://zen-browser.app/)**: Navegador web moderno basado en Firefox, enfocado en privacidad, rendimiento, pestañas verticales y espacios de trabajo.
+- **[Ghostty](https://ghostty.org/) / [Heerd](https://github.com/heerd)**: Emulador de terminal acelerado por GPU con renderizado tipográfico de alta fidelidad.
+
+---
+
+## 🤖 Ecosistema de Inteligencia Artificial (Antigravity, MCP & Skills)
+
+### 1. Protocolos de Contexto del Modelo (MCP Servers)
+- **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)**: Navegación estructural del repositorio (árbol de llamadas, impacto de dependencias y mapa de código).
+- **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria persistente de grafo de conocimiento y tracing del proyecto entre sesiones.
+
+### 2. Skills Personalizadas para Agentes de Código
+- **`act`**: Ejecución y depuración local de workflows de GitHub Actions mediante contenedores Docker.
+- **`httpie`**: Peticiones HTTP, inspección de cabeceras, auth tokens y pruebas de endpoints backend.
+- **`dev-toolbelt`**: Recetas de análisis estático, seguridad y benchmarking (`SQLFluff`, `ShellCheck`, `Trivy`, `Hadolint`, `k6`, `grex`).
+- **`antigravity-guide` & `agy-customizations`**: Guía y referencias de extensibilidad para el CLI de Antigravity.
+
+---
+
+## 🛠️ Catálogo de Herramientas CLI
 
 ### 1. Base de Datos y Arquitectura
-- **[DbGate](https://dbgate.org/)**: Cliente gráfico ágil y liviano para SQL y NoSQL (PostgreSQL, MySQL, Redis, MongoDB, SQLite).
-- **[pgcli](https://www.pgcli.com/)**: Cliente interactivo de terminal para PostgreSQL con autocompletado de esquema en tiempo real y resaltado de sintaxis.
-- **[tbls](https://github.com/k1LoW/tbls)**: Generador automático de documentación y diagramas entidad-relación (ER) en Markdown/Mermaid directo desde la base de datos.
+- **[pgcli](https://www.pgcli.com/)**: Cliente interactivo de terminal para PostgreSQL con autocompletado en tiempo real de esquemas y tablas.
+- **[tbls](https://github.com/k1LoW/tbls)**: Generador automático de documentación y diagramas entidad-relación (ER) en Markdown/SVG directo desde PostgreSQL.
 - **[Atlas](https://atlasgo.io/)**: Linter de seguridad para migraciones y gestión declarativa de esquemas de bases de datos.
 
-### 2. Pruebas de API e Inspección de Red
-- **[Bruno](https://www.usebruno.com/)**: Cliente de APIs offline-first, ligero y Git-friendly (guarda colecciones en archivos planos dentro del repo).
-- **[HTTPie](https://httpie.io/)**: Cliente HTTP para consola con sintaxis clara y salida formateada en color.
-- **[gping](https://github.com/orf/gping)**: Comando ping interactivo con gráfica de latencia en tiempo real en la terminal.
-- **[doggo](https://doggo.mrkaran.dev/)**: Cliente DNS moderno con salida en tablas claras y soporte para DoH y DoT.
-
-### 3. Contenedores y Optimización
+### 2. Contenedores y Optimización
 - **Docker & Docker Compose**: Motor de contenedores y orquestación local de servicios.
-- **[Lazydocker](https://github.com/jesseduffield/lazydocker)**: Interfaz TUI para gestionar ciclos de vida, volúmenes e inspección de logs en tiempo real.
-- **[Dive](https://github.com/wagoodman/dive)**: Analizador capa por capa de imágenes Docker para reducir peso y optimizar el caché de compilación.
+- **[Lazydocker](https://github.com/jesseduffield/lazydocker)**: TUI interactiva para ciclo de vida de contenedores, volúmenes e inspección de logs en tiempo real.
+- **[Dive](https://github.com/wagoodman/dive)**: Analizador capa por capa de imágenes Docker para reducir peso y optimizar build cache.
 - **[Hadolint](https://github.com/hadolint/hadolint)**: Linter de Dockerfiles para asegurar buenas prácticas y estándares de seguridad.
 
-### 4. Calidad de Código, Linting y Seguridad
-- **[Trivy](https://trivy.dev/)**: Escáner de seguridad y vulnerabilidades (CVEs) en imágenes Docker, dependencias e infraestructura como código (IaC).
+### 3. Calidad de Código, Linting y Seguridad
+- **[Trivy](https://trivy.dev/)**: Escáner de vulnerabilidades (CVEs) en imágenes Docker, dependencias e IaC.
 - **[ShellCheck](https://www.shellcheck.net/)**: Linter y análisis estático para scripts en Bash y Shell.
 - **[SQLFluff](https://sqlfluff.com/)**: Linter y formateador de código SQL y Stored Procedures para PostgreSQL.
 - **[grex](https://github.com/pemistahl/grex)**: Generador por consola de expresiones regulares optimizadas a partir de casos de prueba.
 
-### 5. Runtimes y Gestores de Versiones
+### 4. Runtimes y Gestores de Versiones
 - **[Mise-en-place](https://mise.jdx.dev/)**: Gestor universal de versiones de lenguajes (Node, Python, Go, Java, Rust) y variables de entorno por proyecto.
 - **[Bun](https://bun.sh/)**: Runtime y empaquetador ultrarrápido para scripts, tests y herramientas en TypeScript/JavaScript.
-- **pnpm**: Gestor de paquetes rápido y eficiente en uso de espacio en disco.
+- **pnpm**: Gestor de paquetes rápido y eficiente en disco.
 
-### 6. Control de Versiones y Flujo Git
-- **[Lazygit](https://github.com/jesseduffield/lazygit)**: TUI interactiva para Git (staging granular, rebases y gestión de ramas sin salir de la consola).
+### 5. Control de Versiones y Flujo Git
+- **[Lazygit](https://github.com/jesseduffield/lazygit)**: TUI interactiva para Git (staging granular, rebases y ramas sin salir de la consola).
 - **[Git Delta](https://github.com/dandavison/delta)**: Paginador de sintaxis para hacer que los diffs de Git sean legibles y claros.
-- **[GitHub CLI (`gh`)](https://cli.github.com/)**: Gestión de pull requests, issues y workflows de CI/CD desde la terminal.
+- **[GitHub CLI (`gh`)](https://cli.github.com/)**: Gestión de pull requests, issues y workflows desde la terminal.
 
-### 7. Testing, CI y Rendimiento
+### 6. Testing, CI y Rendimiento
 - **[Act](https://github.com/nektos/act)**: Ejecución local de workflows de GitHub Actions usando Docker.
 - **[k6](https://k6.io/)**: Pruebas de carga, estrés y rendimiento para APIs y microservicios.
 - **[Hyperfine](https://github.com/sharkdp/hyperfine)**: Herramienta de benchmarking comparativo de comandos y scripts con desvío estándar.
+- **[gping](https://github.com/orf/gping)**: Gráfica de latencia de red en tiempo real en la terminal.
+- **[doggo](https://doggo.mrkaran.dev/)**: Cliente DNS moderno con salida en tablas claras y soporte para DoH y DoT.
 
-### 8. Utilidades CLI y Productividad
+### 7. Productividad y Navegación CLI
 - **[Ripgrep (`rg`)](https://github.com/BurntSushi/ripgrep)**: Búsqueda recursiva ultrarrápida de texto en código.
 - **[Fd (`fd`)](https://github.com/sharkdp/fd)**: Alternativa rápida e intuitiva al comando `find`.
 - **[Bat](https://github.com/sharkdp/bat)**: Visor de archivos con resaltado de sintaxis e integración con Git.
@@ -55,7 +74,7 @@ Catálogo integral de herramientas de terminal, utilidades de base de datos, ins
 - **[Dust](https://github.com/bootandy/dust)**: Analizador visual de uso de disco en terminal.
 - **[Glow](https://github.com/charmbracelet/glow)**: Renderizador de Markdown en consola.
 - **[Fx](https://fx.wtf/)**: Visor interactivo TUI de JSON con soporte para consultas JavaScript.
-- **[Zoxide](https://github.com/ajeetdsouza/zoxide)**: Navegación inteligente de directorios basada en frecuencia de uso (`z <directorio>`).
+- **[Zoxide](https://github.com/ajeetdsouza/zoxide)**: Navegación inteligente de directorios (`z <directorio>`).
 
 ---
 
@@ -71,10 +90,21 @@ sudo pacman -S \
 
 # 2. Paquetes desde AUR (vía yay)
 yay -S \
-  mise-bin act-bin k6-bin tbls-bin atlas-bin bruno-bin fx
+  mise-bin act-bin k6-bin tbls-bin atlas-bin bruno-bin fx \
+  zen-browser-bin obsidian
 
 # 3. Aplicaciones GUI (DbGate AppImage)
 mkdir -p ~/.local/bin
 curl -L https://github.com/dbgate/dbgate/releases/latest/download/dbgate-latest.AppImage -o ~/.local/bin/dbgate
 chmod +x ~/.local/bin/dbgate
 ```
+
+---
+
+## 🙏 Créditos & Proyectos de Referencia
+
+Este entorno y flujo de trabajo toma inspiración directa de excelentes proyectos de la comunidad:
+
+* **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Dotfiles y configuración para LazyVim, multiplexores y entorno de terminal de Gentleman Programming.
+* **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)**: Herramientas de automatización, skills y orquestación de IA para desarrolladores.
+* **[Redux Toolkit (RTK)](https://github.com/reduxjs/redux-toolkit)**: Patrones de arquitectura de estado predecible y flujos inmutables en frontend.
