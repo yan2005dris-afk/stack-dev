@@ -1,0 +1,16 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = Yandris Rivera Torres
+	email = yan.2005dris@gmail.com
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-\n  only
+[delta]
+	navigate = true
+	light = false
+	line-numbers = true
