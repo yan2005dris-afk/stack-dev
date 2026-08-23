@@ -32,83 +32,140 @@ Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado par
 
 ---
 
-## 🤖 Ecosistema de Inteligencia Artificial (Agentes, Contexto, Optimizadores & MCP)
+## 🤖 Ecosistema de Inteligencia Artificial & Ejemplos de Uso
 
 ### 1. Agentes de Código & CLIs Autónomos
-- **[Antigravity CLI (`agy`)](https://github.com/google/antigravity)**: Asistente y orquestador agentic avanzado desarrollado por Google DeepMind, con soporte multi-agente, ejecución de herramientas y contexto dinámico.
-- **[Aider](https://github.com/paul-gauthier/aider)**: Herramienta líder de pair-programming por terminal con LLMs, edición multi-archivo y generación automática de commits convencionales.
-- **[OpenCode](https://github.com/NickvanDyke/opencode.nvim)**: Agente autónomo de código abierto integrado con LLMs para refactorización, generación de tests y análisis en local.
-- **[Pi Agent](https://github.com/mizchi/pi)**: Agente interactivo ligero y modular para asistencia en terminal y pipelines de desarrollo.
+- **[Antigravity CLI (`agy`)](https://github.com/google/antigravity)**: Asistente y orquestador agentic avanzado de Google DeepMind.
+  ```bash
+  agy "Analiza la arquitectura de rutas y genera el diagrama ER con tbls"
+  ```
+- **[Aider](https://github.com/paul-gauthier/aider)**: Pair-programming por terminal con commits atómicos automáticos.
+  ```bash
+  aider src/app.module.ts src/billing/billing.service.ts
+  ```
+- **[OpenCode](https://github.com/NickvanDyke/opencode.nvim)** & **[Pi Agent](https://github.com/mizchi/pi)**: Asistentes interactivos de código en consola.
 
 ### 2. Extracción de Contexto, AST & Reducción de Tokens
-- **[Graft](https://github.com/nanonets/graft)**: Herramienta CLI para transformar estructuras de repositorios y bases de código completas en contexto estructurado para LLMs.
-- **[Repomix](https://github.com/yamadashy/repomix)**: Empaqueta repositorios enteros de código en un solo archivo Markdown/XML estructurado con métricas de tokens.
-- **[Files-to-prompt](https://github.com/simonw/files-to-prompt)**: Utilidad CLI minimalista para concatenar y delimitar archivos/directorios específicos para prompts de LLMs.
-- **[ast-grep (`sg`)](https://github.com/ast-grep/ast-grep)**: Búsqueda y reescritura estructural de código basada en Árboles de Sintaxis Abstracta (AST) para TypeScript, Python, Rust, etc.
-- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: CLI ultrarrápido en Rust para filtrar y compactar la salida de comandos reduciendo el consumo de tokens entre un 60% y 90%.
-- **[Tokei](https://github.com/XAMPPRocky/tokei)**: Analizador ultrarrápido de líneas de código, comentarios y complejidad por lenguaje.
+- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: Filtra y comprime la salida de comandos para no saturar la ventana de contexto.
+  ```bash
+  rtk git log -n 50 | agy "Genera el changelog"
+  ```
+- **[Repomix](https://github.com/yamadashy/repomix)**: Empaqueta todo el repositorio en un único archivo Markdown limpio para LLMs.
+  ```bash
+  repomix --include "src/**/*.ts" --output repo-context.md
+  ```
+- **[Files-to-prompt](https://github.com/simonw/files-to-prompt)**: Concatena archivos específicos respetando `.gitignore`.
+  ```bash
+  files-to-prompt src/modules/auth/ | agy "Revisa posibles brechas de seguridad"
+  ```
+- **[ast-grep (`sg`)](https://github.com/ast-grep/ast-grep)**: Búsqueda estructural por Árbol de Sintaxis (AST) sin falsos positivos de regex.
+  ```bash
+  sg -p '@Injectable() class $CLASS { $$$ }' --lang typescript
+  ```
+- **[Tokei](https://github.com/XAMPPRocky/tokei)**: Conteo instantáneo de líneas de código reales y complejidad.
+  ```bash
+  tokei src/
+  ```
 
 ### 3. Protocolos de Contexto del Modelo (MCP Servers)
-- **[Engram MCP](https://github.com/gentleman-programming/engram)** (creado por Gentleman Programming / Gentle AI): Memoria semántica persistente y grafo de conocimiento histórico para sesiones de agentes.
-- **[Context7 MCP](https://github.com/gentleman-programming/context7)** (creado por Gentleman Programming / Gentle AI): Ingesta y resolución profunda de contexto documental y arquitectónico para LLMs.
-- **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)** (creado por Gentleman Programming / Gentle AI): Navegación estructural del repositorio (árbol de llamadas, impacto de dependencias y mapa de código).
-- **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria estructurada de código y tracing de proyecto.
+- **[Engram MCP](https://github.com/gentleman-programming/engram)**: Memoria semántica y grafo de conocimiento entre sesiones.
+- **[Context7 MCP](https://github.com/gentleman-programming/context7)**: Ingesta profunda de contexto documental para LLMs.
+- **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)**: Navegación estructural del repositorio (call trees y blast radius).
+- **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria estructurada de código y tracing.
 
 ### 4. Skills Personalizadas para Agentes de Código
-- **`act`**: Ejecución y depuración local de workflows de GitHub Actions mediante contenedores Docker.
-- **`httpie`**: Peticiones HTTP, inspección de cabeceras, auth tokens y pruebas de endpoints backend.
-- **`dev-toolbelt`**: Recetas de análisis estático, seguridad y benchmarking (`SQLFluff`, `ShellCheck`, `Trivy`, `Hadolint`, `k6`, `grex`).
-- **`antigravity-guide` & `agy-customizations`**: Guía y referencias de extensibilidad para el CLI de Antigravity.
+- **`act`**: Ejecución local de GitHub Actions con Docker (`act -j build`).
+- **`httpie`**: Peticiones HTTP claras (`http GET localhost:3000/api/health Authorization:"Bearer $TOKEN"`).
+- **`dev-toolbelt`**: Recetas de análisis estático (`hadolint Dockerfile`, `shellcheck deploy.sh`, `sqlfluff lint query.sql`).
+- **`antigravity-guide` & `agy-customizations`**: Guía y referencias de extensibilidad para Antigravity CLI.
 
 ---
 
-## 🛠️ Catálogo de Herramientas CLI
+## 🛠️ Catálogo de Herramientas CLI & Ejemplos
 
-### 1. Runtimes, Gestores de Versiones & Toolchains
-- **[Mise-en-place](https://mise.jdx.dev/)**: Gestor universal políglota de versiones (Node, Python, Go, Java, Rust), binarios CLI y variables de entorno por directorio.
-- **[Bun](https://bun.sh/)**: Runtime y empaquetador ultrarrápido para scripts, tests y herramientas en TypeScript/JavaScript.
-- **pnpm**: Gestor de paquetes rápido y eficiente en disco con almacenamiento por enlace duro (hard-links).
+### 1. Base de Datos y Arquitectura
+- **[pgcli](https://www.pgcli.com/)**: Terminal interactiva con autocompletado de tablas y columnas.
+  ```bash
+  pgcli postgresql://usuario:password@localhost:5432/jasrapo_db
+  ```
+- **[tbls](https://github.com/k1LoW/tbls)**: Documentación y diagramas ER generados en Markdown.
+  ```bash
+  tbls doc postgresql://postgres:pass@localhost:5432/jasrapo_db ./docs/db
+  ```
+- **[Atlas](https://atlasgo.io/)**: Linter y control de seguridad en migraciones.
+  ```bash
+  atlas schema inspect -u "postgres://usuario:pass@localhost:5432/jasrapo_db"
+  ```
 
-### 2. Base de Datos y Arquitectura
-- **[pgcli](https://www.pgcli.com/)**: Cliente interactivo de terminal para PostgreSQL con autocompletado en tiempo real de esquemas y tablas.
-- **[tbls](https://github.com/k1LoW/tbls)**: Generador automático de documentación y diagramas entidad-relación (ER) en Markdown/SVG directo desde PostgreSQL.
-- **[Atlas](https://atlasgo.io/)**: Linter de seguridad para migraciones y gestión declarativa de esquemas de bases de datos.
+### 2. Contenedores y Optimización
+- **[Lazydocker](https://github.com/jesseduffield/lazydocker)**: TUI interactiva para contenedores.
+  ```bash
+  lazydocker
+  ```
+- **[Dive](https://github.com/wagoodman/dive)**: Inspección de peso de capas de una imagen Docker.
+  ```bash
+  dive jasrapo-backend:latest
+  ```
+- **[Hadolint](https://github.com/hadolint/hadolint)**: Linter de buenas prácticas en Dockerfiles.
+  ```bash
+  hadolint Dockerfile
+  ```
 
-### 3. Contenedores y Optimización
-- **Docker & Docker Compose**: Motor de contenedores y orquestación local de servicios.
-- **[Lazydocker](https://github.com/jesseduffield/lazydocker)**: TUI interactiva para ciclo de vida de contenedores, volúmenes e inspección de logs en tiempo real.
-- **[Dive](https://github.com/wagoodman/dive)**: Analizador capa por capa de imágenes Docker para reducir peso y optimizar build cache.
-- **[Hadolint](https://github.com/hadolint/hadolint)**: Linter de Dockerfiles para asegurar buenas prácticas y estándares de seguridad.
+### 3. Calidad de Código, Linting y Seguridad
+- **[Trivy](https://trivy.dev/)**: Escaneo de vulnerabilidades (CVEs).
+  ```bash
+  trivy image jasrapo-backend:latest
+  trivy fs --scanners vuln,secret .
+  ```
+- **[ShellCheck](https://www.shellcheck.net/)**: Linter para scripts Bash.
+  ```bash
+  shellcheck deploy.sh
+  ```
+- **[SQLFluff](https://sqlfluff.com/)**: Linter y formateador SQL para PostgreSQL.
+  ```bash
+  sqlfluff lint migrations/ --dialect postgres
+  ```
+- **[grex](https://github.com/pemistahl/grex)**: Generador de expresiones regulares desde casos de prueba.
+  ```bash
+  grex a@b.com test@gmail.com contacto@empresa.ec
+  ```
 
-### 4. Calidad de Código, Linting y Seguridad
-- **[Trivy](https://trivy.dev/)**: Escáner de vulnerabilidades (CVEs) en imágenes Docker, dependencias e IaC.
-- **[ShellCheck](https://www.shellcheck.net/)**: Linter y análisis estático para scripts en Bash y Shell.
-- **[SQLFluff](https://sqlfluff.com/)**: Linter y formateador de código SQL y Stored Procedures para PostgreSQL.
-- **[grex](https://github.com/pemistahl/grex)**: Generador por consola de expresiones regulares optimizadas a partir de casos de prueba.
+### 4. Testing, Rendimiento y Red
+- **[k6](https://k6.io/)**: Pruebas de estrés y carga.
+  ```bash
+  k6 run load-test.js
+  ```
+- **[Hyperfine](https://github.com/sharkdp/hyperfine)**: Benchmarking de comandos.
+  ```bash
+  hyperfine --warmup 3 'pnpm build' 'bun build ./src/main.ts'
+  ```
+- **[gping](https://github.com/orf/gping)**: Gráfica de latencia interactiva.
+  ```bash
+  gping 1.1.1.1 google.com
+  ```
+- **[doggo](https://doggo.mrkaran.dev/)**: Consultas DNS legibles.
+  ```bash
+  doggo google.com @1.1.1.1
+  ```
 
-### 5. Control de Versiones y Flujo Git
-- **[Lazygit](https://github.com/jesseduffield/lazygit)**: TUI interactiva para Git (staging granular, rebases y ramas sin salir de la consola).
-- **[Git Delta](https://github.com/dandavison/delta)**: Paginador de sintaxis para hacer que los diffs de Git sean legibles y claros.
-- **[GitHub CLI (`gh`)](https://cli.github.com/)**: Gestión de pull requests, issues y workflows desde la terminal.
-
-### 6. Testing, CI y Rendimiento
-- **[Act](https://github.com/nektos/act)**: Ejecución local de workflows de GitHub Actions usando Docker.
-- **[k6](https://k6.io/)**: Pruebas de carga, estrés y rendimiento para APIs y microservicios.
-- **[Hyperfine](https://github.com/sharkdp/hyperfine)**: Herramienta de benchmarking comparativo de comandos y scripts con desvío estándar.
-- **[gping](https://github.com/orf/gping)**: Gráfica de latencia de red en tiempo real en la terminal.
-- **[doggo](https://doggo.mrkaran.dev/)**: Cliente DNS moderno con salida en tablas claras y soporte para DoH y DoT.
-
-### 7. Productividad y Navegación CLI
-- **[Ripgrep (`rg`)](https://github.com/BurntSushi/ripgrep)**: Búsqueda recursiva ultrarrápida de texto en código.
-- **[Fd (`fd`)](https://github.com/sharkdp/fd)**: Alternativa rápida e intuitiva al comando `find`.
-- **[Bat](https://github.com/sharkdp/bat)**: Visor de archivos con resaltado de sintaxis e integración con Git.
-- **[Eza](https://github.com/eza-community/eza)**: Reemplazo moderno de `ls` con vista de árbol, metadata e íconos.
-- **[Fzf](https://github.com/junegunn/fzf)**: Buscador difuso interactivo para terminal.
-- **[Jq](https://jqlang.github.io/jq/) & [Yq](https://github.com/mikefarah/yq)**: Procesadores y filtros de JSON, YAML y TOML.
-- **[Dust](https://github.com/bootandy/dust)**: Analizador visual de uso de disco en terminal.
-- **[Glow](https://github.com/charmbracelet/glow)**: Renderizador de Markdown en consola.
-- **[Fx](https://fx.wtf/)**: Visor interactivo TUI de JSON con soporte para consultas JavaScript.
-- **[Zoxide](https://github.com/ajeetdsouza/zoxide)**: Navegación inteligente de directorios (`z <directorio>`).
+### 5. Productividad CLI
+- **[Ripgrep (`rg`)](https://github.com/BurntSushi/ripgrep)** & **[Fd (`fd`)](https://github.com/sharkdp/fd)**:
+  ```bash
+  rg "OrdenTrabajoService" src/
+  fd -e ts -e json
+  ```
+- **[Dust](https://github.com/bootandy/dust)**: Análisis visual de disco.
+  ```bash
+  dust -d 2
+  ```
+- **[Glow](https://github.com/charmbracelet/glow)**: Lectura de Markdown formateado.
+  ```bash
+  glow README.md
+  ```
+- **[Fx](https://fx.wtf/)**: Visor interactivo de JSON.
+  ```bash
+  curl -s https://api.github.com/repos/yan2005dris-afk/stack-dev | fx
+  ```
 
 ---
 
@@ -125,10 +182,12 @@ sudo pacman -S \
 # 2. Paquetes desde AUR (vía yay)
 yay -S \
   mise-bin act-bin k6-bin tbls-bin atlas-bin bruno-bin fx \
-  zen-browser-bin obsidian repomix-bin aider-chat-bin
+  zen-browser-bin obsidian
 
-# 3. Herramientas CLI vía pipx / uv
+# 3. Herramientas CLI vía pipx / npm
+pipx install aider-chat
 pipx install files-to-prompt
+npm install -g repomix
 
 # 4. Aplicaciones GUI (DbGate AppImage)
 mkdir -p ~/.local/bin
