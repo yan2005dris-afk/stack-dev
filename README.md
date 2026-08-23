@@ -32,20 +32,23 @@ Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado par
 
 ---
 
-## 🤖 Ecosistema de Inteligencia Artificial (Agentes, CLI, MCP & Skills)
+## 🤖 Ecosistema de Inteligencia Artificial (Agentes, CLI, Optimizadores & MCP)
 
 ### 1. Agentes de Código & CLIs Autónomos
 - **[Antigravity CLI (`agy`)](https://github.com/google/antigravity)**: Asistente y orquestador agentic avanzado desarrollado por Google DeepMind, con soporte multi-agente, ejecución de herramientas y contexto dinámico.
 - **[OpenCode](https://github.com/NickvanDyke/opencode.nvim)**: Agente autónomo de código abierto integrado con LLMs para refactorización, generación de tests y análisis en local.
 - **[Pi Agent](https://github.com/mizchi/pi)**: Agente interactivo ligero y modular para asistencia en terminal y pipelines de desarrollo.
 
-### 2. Protocolos de Contexto del Modelo (MCP Servers)
+### 2. Optimización de Tokens & Contexto para Agentes
+- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: CLI ultrarrápido escrito en Rust para filtrar, compactar y resumir la salida de comandos (`cargo test`, `git log`, `pytest`, linters) reduciendo el consumo de tokens en la ventana de contexto de los agentes de IA entre un 60% y 90%.
+
+### 3. Protocolos de Contexto del Modelo (MCP Servers)
 - **[Engram MCP](https://github.com/gentleman-programming/engram)** (creado por Gentleman Programming / Gentle AI): Memoria semántica persistente y grafo de conocimiento histórico para sesiones de agentes.
 - **[Context7 MCP](https://github.com/gentleman-programming/context7)** (creado por Gentleman Programming / Gentle AI): Ingesta y resolución profunda de contexto documental y arquitectónico para LLMs.
 - **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)** (creado por Gentleman Programming / Gentle AI): Navegación estructural del repositorio (árbol de llamadas, impacto de dependencias y mapa de código).
 - **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria estructurada de código y tracing de proyecto.
 
-### 3. Skills Personalizadas para Agentes de Código
+### 4. Skills Personalizadas para Agentes de Código
 - **`act`**: Ejecución y depuración local de workflows de GitHub Actions mediante contenedores Docker.
 - **`httpie`**: Peticiones HTTP, inspección de cabeceras, auth tokens y pruebas de endpoints backend.
 - **`dev-toolbelt`**: Recetas de análisis estático, seguridad y benchmarking (`SQLFluff`, `ShellCheck`, `Trivy`, `Hadolint`, `k6`, `grex`).
@@ -56,7 +59,7 @@ Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado par
 ## 🛠️ Catálogo de Herramientas CLI
 
 ### 1. Runtimes, Gestores de Versiones & Toolchains
-- **[Mise-en-place (antes rtx)](https://mise.jdx.dev/)**: Gestor universal políglota de versiones (Node, Python, Go, Java, Rust), binarios CLI y variables de entorno por directorio (reemplazo ultra-rápido en Rust de `asdf`/`nvm`/`pyenv`).
+- **[Mise-en-place](https://mise.jdx.dev/)**: Gestor universal políglota de versiones (Node, Python, Go, Java, Rust), binarios CLI y variables de entorno por directorio.
 - **[Bun](https://bun.sh/)**: Runtime y empaquetador ultrarrápido para scripts, tests y herramientas en TypeScript/JavaScript.
 - **pnpm**: Gestor de paquetes rápido y eficiente en disco con almacenamiento por enlace duro (hard-links).
 
@@ -130,5 +133,6 @@ chmod +x ~/.local/bin/dbgate
 
 Este entorno y flujo de trabajo toma inspiración directa de excelentes proyectos de la comunidad:
 
+* **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: Herramienta de optimización y reducción de contexto para agentes CLI de IA.
 * **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)** / **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Ecosistema de herramientas de IA, MCP servers ([Engram](https://github.com/gentleman-programming/engram), [Context7](https://github.com/gentleman-programming/context7), [CodeGraph](https://github.com/gentleman-programming/gentle-ai)) y configuración de Neovim/LazyVim de Alan Buscaglia (Gentleman Programming).
-* **[Mise / rtx](https://github.com/jdx/mise)**: Gestor de entornos y toolchains de Jeff Dickey.
+* **[Mise-en-place](https://github.com/jdx/mise)**: Gestor de entornos y toolchains de Jeff Dickey.
