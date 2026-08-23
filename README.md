@@ -14,15 +14,20 @@ Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / F
 
 ---
 
-## 🤖 Ecosistema de Inteligencia Artificial (Antigravity, MCP & Skills)
+## 🤖 Ecosistema de Inteligencia Artificial (Agentes, CLI, MCP & Skills)
 
-### 1. Protocolos de Contexto del Modelo (MCP Servers)
+### 1. Agentes de Código & CLIs Autónomos
+- **[Antigravity CLI (`agy`)](https://github.com/google/antigravity)**: Asistente y orquestador agentic avanzado desarrollado por Google DeepMind, con soporte multi-agente, ejecución de herramientas y contexto dinámico.
+- **[OpenCode](https://github.com/NickvanDyke/opencode.nvim)**: Agente autónomo de código abierto integrado con LLMs para refactorización, generación de tests y análisis en local.
+- **[Pi Agent](https://github.com/mizchi/pi)**: Agente interactivo ligero y modular para asistencia en terminal y pipelines de desarrollo.
+
+### 2. Protocolos de Contexto del Modelo (MCP Servers)
 - **[Engram MCP](https://github.com/gentleman-programming/engram)** (creado por Gentleman Programming / Gentle AI): Memoria semántica persistente y grafo de conocimiento histórico para sesiones de agentes.
 - **[Context7 MCP](https://github.com/gentleman-programming/context7)** (creado por Gentleman Programming / Gentle AI): Ingesta y resolución profunda de contexto documental y arquitectónico para LLMs.
 - **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)** (creado por Gentleman Programming / Gentle AI): Navegación estructural del repositorio (árbol de llamadas, impacto de dependencias y mapa de código).
 - **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria estructurada de código y tracing de proyecto.
 
-### 2. Skills Personalizadas para Agentes de Código
+### 3. Skills Personalizadas para Agentes de Código
 - **`act`**: Ejecución y depuración local de workflows de GitHub Actions mediante contenedores Docker.
 - **`httpie`**: Peticiones HTTP, inspección de cabeceras, auth tokens y pruebas de endpoints backend.
 - **`dev-toolbelt`**: Recetas de análisis estático, seguridad y benchmarking (`SQLFluff`, `ShellCheck`, `Trivy`, `Hadolint`, `k6`, `grex`).
