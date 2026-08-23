@@ -55,27 +55,27 @@ Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado par
 
 ## 🛠️ Catálogo de Herramientas CLI
 
-### 1. Base de Datos y Arquitectura
+### 1. Runtimes, Gestores de Versiones & Toolchains
+- **[Mise-en-place (antes rtx)](https://mise.jdx.dev/)**: Gestor universal políglota de versiones (Node, Python, Go, Java, Rust), binarios CLI y variables de entorno por directorio (reemplazo ultra-rápido en Rust de `asdf`/`nvm`/`pyenv`).
+- **[Bun](https://bun.sh/)**: Runtime y empaquetador ultrarrápido para scripts, tests y herramientas en TypeScript/JavaScript.
+- **pnpm**: Gestor de paquetes rápido y eficiente en disco con almacenamiento por enlace duro (hard-links).
+
+### 2. Base de Datos y Arquitectura
 - **[pgcli](https://www.pgcli.com/)**: Cliente interactivo de terminal para PostgreSQL con autocompletado en tiempo real de esquemas y tablas.
 - **[tbls](https://github.com/k1LoW/tbls)**: Generador automático de documentación y diagramas entidad-relación (ER) en Markdown/SVG directo desde PostgreSQL.
 - **[Atlas](https://atlasgo.io/)**: Linter de seguridad para migraciones y gestión declarativa de esquemas de bases de datos.
 
-### 2. Contenedores y Optimización
+### 3. Contenedores y Optimización
 - **Docker & Docker Compose**: Motor de contenedores y orquestación local de servicios.
 - **[Lazydocker](https://github.com/jesseduffield/lazydocker)**: TUI interactiva para ciclo de vida de contenedores, volúmenes e inspección de logs en tiempo real.
 - **[Dive](https://github.com/wagoodman/dive)**: Analizador capa por capa de imágenes Docker para reducir peso y optimizar build cache.
 - **[Hadolint](https://github.com/hadolint/hadolint)**: Linter de Dockerfiles para asegurar buenas prácticas y estándares de seguridad.
 
-### 3. Calidad de Código, Linting y Seguridad
+### 4. Calidad de Código, Linting y Seguridad
 - **[Trivy](https://trivy.dev/)**: Escáner de vulnerabilidades (CVEs) en imágenes Docker, dependencias e IaC.
 - **[ShellCheck](https://www.shellcheck.net/)**: Linter y análisis estático para scripts en Bash y Shell.
 - **[SQLFluff](https://sqlfluff.com/)**: Linter y formateador de código SQL y Stored Procedures para PostgreSQL.
 - **[grex](https://github.com/pemistahl/grex)**: Generador por consola de expresiones regulares optimizadas a partir de casos de prueba.
-
-### 4. Runtimes y Gestores de Versiones
-- **[Mise-en-place](https://mise.jdx.dev/)**: Gestor universal de versiones de lenguajes (Node, Python, Go, Java, Rust) y variables de entorno por proyecto.
-- **[Bun](https://bun.sh/)**: Runtime y empaquetador ultrarrápido para scripts, tests y herramientas en TypeScript/JavaScript.
-- **pnpm**: Gestor de paquetes rápido y eficiente en disco.
 
 ### 5. Control de Versiones y Flujo Git
 - **[Lazygit](https://github.com/jesseduffield/lazygit)**: TUI interactiva para Git (staging granular, rebases y ramas sin salir de la consola).
@@ -131,4 +131,4 @@ chmod +x ~/.local/bin/dbgate
 Este entorno y flujo de trabajo toma inspiración directa de excelentes proyectos de la comunidad:
 
 * **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)** / **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Ecosistema de herramientas de IA, MCP servers ([Engram](https://github.com/gentleman-programming/engram), [Context7](https://github.com/gentleman-programming/context7), [CodeGraph](https://github.com/gentleman-programming/gentle-ai)) y configuración de Neovim/LazyVim de Alan Buscaglia (Gentleman Programming).
-* **[Redux Toolkit (RTK)](https://github.com/reduxjs/redux-toolkit)**: Patrones de arquitectura de estado predecible y flujos inmutables en frontend.
+* **[Mise / rtx](https://github.com/jdx/mise)**: Gestor de entornos y toolchains de Jeff Dickey.
