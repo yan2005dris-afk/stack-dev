@@ -36,13 +36,17 @@ Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado par
 
 ### 1. Agentes de Código & CLIs Autónomos
 - **[Antigravity CLI (`agy`)](https://github.com/google/antigravity)**: Asistente y orquestador agentic avanzado desarrollado por Google DeepMind, con soporte multi-agente, ejecución de herramientas y contexto dinámico.
+- **[Aider](https://github.com/paul-gauthier/aider)**: Herramienta líder de pair-programming por terminal con LLMs, edición multi-archivo y generación automática de commits convencionales.
 - **[OpenCode](https://github.com/NickvanDyke/opencode.nvim)**: Agente autónomo de código abierto integrado con LLMs para refactorización, generación de tests y análisis en local.
 - **[Pi Agent](https://github.com/mizchi/pi)**: Agente interactivo ligero y modular para asistencia en terminal y pipelines de desarrollo.
 
-### 2. Extracción de Contexto de Repositorios & Reducción de Tokens
-- **[Graft](https://github.com/nanonets/graft)**: Herramienta CLI para transformar estructuras de repositorios y bases de código completas en contexto estructurado y digerible para LLMs y asistentes de IA.
-- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: CLI ultrarrápido en Rust para filtrar, compactar y resumir la salida de comandos (`cargo test`, `git log`, `pytest`, linters) reduciendo el consumo de tokens entre un 60% y 90%.
-- **[Repomix](https://github.com/yamadashy/repomix)** (antes Repopack): Empaqueta repositorios enteros de código en un solo archivo Markdown/XML estructurado con conteo de tokens y mapeo de dependencias para modelos de lenguaje.
+### 2. Extracción de Contexto, AST & Reducción de Tokens
+- **[Graft](https://github.com/nanonets/graft)**: Herramienta CLI para transformar estructuras de repositorios y bases de código completas en contexto estructurado para LLMs.
+- **[Repomix](https://github.com/yamadashy/repomix)**: Empaqueta repositorios enteros de código en un solo archivo Markdown/XML estructurado con métricas de tokens.
+- **[Files-to-prompt](https://github.com/simonw/files-to-prompt)**: Utilidad CLI minimalista para concatenar y delimitar archivos/directorios específicos para prompts de LLMs.
+- **[ast-grep (`sg`)](https://github.com/ast-grep/ast-grep)**: Búsqueda y reescritura estructural de código basada en Árboles de Sintaxis Abstracta (AST) para TypeScript, Python, Rust, etc.
+- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: CLI ultrarrápido en Rust para filtrar y compactar la salida de comandos reduciendo el consumo de tokens entre un 60% y 90%.
+- **[Tokei](https://github.com/XAMPPRocky/tokei)**: Analizador ultrarrápido de líneas de código, comentarios y complejidad por lenguaje.
 
 ### 3. Protocolos de Contexto del Modelo (MCP Servers)
 - **[Engram MCP](https://github.com/gentleman-programming/engram)** (creado por Gentleman Programming / Gentle AI): Memoria semántica persistente y grafo de conocimiento histórico para sesiones de agentes.
@@ -116,14 +120,17 @@ sudo pacman -S \
   neovim zed docker docker-compose lazygit git-delta github-cli \
   ripgrep fd bat eza fzf jq yq zoxide \
   httpie hyperfine trivy shellcheck hadolint pgcli grex \
-  dust glow bun
+  dust glow bun tokei ast-grep
 
 # 2. Paquetes desde AUR (vía yay)
 yay -S \
   mise-bin act-bin k6-bin tbls-bin atlas-bin bruno-bin fx \
-  zen-browser-bin obsidian repomix
+  zen-browser-bin obsidian repomix-bin aider-chat-bin
 
-# 3. Aplicaciones GUI (DbGate AppImage)
+# 3. Herramientas CLI vía pipx / uv
+pipx install files-to-prompt
+
+# 4. Aplicaciones GUI (DbGate AppImage)
 mkdir -p ~/.local/bin
 curl -L https://github.com/dbgate/dbgate/releases/latest/download/dbgate-latest.AppImage -o ~/.local/bin/dbgate
 chmod +x ~/.local/bin/dbgate
@@ -135,8 +142,9 @@ chmod +x ~/.local/bin/dbgate
 
 Este entorno y flujo de trabajo toma inspiración directa de excelentes proyectos de la comunidad:
 
-* **[Graft](https://github.com/nanonets/graft)**: Extracción y paquetización de contexto de repositorios para LLMs.
+* **[Aider](https://github.com/paul-gauthier/aider)**: Pair programming impulsado por IA y mapa semántico de repositorios.
+* **[Graft](https://github.com/nanonets/graft)** / **[Repomix](https://github.com/yamadashy/repomix)**: Extracción y paquetización de contexto de repositorios para LLMs.
 * **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: Herramienta de optimización y reducción de contexto para agentes CLI de IA.
-* **[Repomix](https://github.com/yamadashy/repomix)**: Empaquetador de repositorios de código para prompts y análisis de IA.
+* **[ast-grep](https://github.com/ast-grep/ast-grep)**: Búsqueda y reescritura de código por AST en Rust.
 * **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)** / **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Ecosistema de herramientas de IA, MCP servers ([Engram](https://github.com/gentleman-programming/engram), [Context7](https://github.com/gentleman-programming/context7), [CodeGraph](https://github.com/gentleman-programming/gentle-ai)) y configuración de Neovim/LazyVim de Alan Buscaglia (Gentleman Programming).
 * **[Mise-en-place](https://github.com/jdx/mise)**: Gestor de entornos y toolchains de Jeff Dickey.
