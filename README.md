@@ -17,8 +17,10 @@ Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / F
 ## 🤖 Ecosistema de Inteligencia Artificial (Antigravity, MCP & Skills)
 
 ### 1. Protocolos de Contexto del Modelo (MCP Servers)
-- **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)**: Navegación estructural del repositorio (árbol de llamadas, impacto de dependencias y mapa de código).
-- **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria persistente de grafo de conocimiento y tracing del proyecto entre sesiones.
+- **[Engram MCP](https://github.com/gentleman-programming/engram)** (creado por Gentleman Programming / Gentle AI): Memoria semántica persistente y grafo de conocimiento histórico para sesiones de agentes.
+- **[Context7 MCP](https://github.com/gentleman-programming/context7)** (creado por Gentleman Programming / Gentle AI): Ingesta y resolución profunda de contexto documental y arquitectónico para LLMs.
+- **[CodeGraph MCP](https://github.com/gentleman-programming/gentle-ai)** (creado por Gentleman Programming / Gentle AI): Navegación estructural del repositorio (árbol de llamadas, impacto de dependencias y mapa de código).
+- **[Codebase Memory MCP](https://github.com/codebase-memory/codebase-memory-mcp)**: Memoria estructurada de código y tracing de proyecto.
 
 ### 2. Skills Personalizadas para Agentes de Código
 - **`act`**: Ejecución y depuración local de workflows de GitHub Actions mediante contenedores Docker.
@@ -105,6 +107,5 @@ chmod +x ~/.local/bin/dbgate
 
 Este entorno y flujo de trabajo toma inspiración directa de excelentes proyectos de la comunidad:
 
-* **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Dotfiles y configuración para LazyVim, multiplexores y entorno de terminal de Gentleman Programming.
-* **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)**: Herramientas de automatización, skills y orquestación de IA para desarrolladores.
+* **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)** / **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Ecosistema de herramientas de IA, MCP servers ([Engram](https://github.com/gentleman-programming/engram), [Context7](https://github.com/gentleman-programming/context7), [CodeGraph](https://github.com/gentleman-programming/gentle-ai)) y configuración de Neovim/LazyVim de Alan Buscaglia (Gentleman Programming).
 * **[Redux Toolkit (RTK)](https://github.com/reduxjs/redux-toolkit)**: Patrones de arquitectura de estado predecible y flujos inmutables en frontend.
