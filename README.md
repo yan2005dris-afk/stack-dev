@@ -32,15 +32,17 @@ Entorno de desarrollo moderno, modular y reproducible para Linux, optimizado par
 
 ---
 
-## 🤖 Ecosistema de Inteligencia Artificial (Agentes, CLI, Optimizadores & MCP)
+## 🤖 Ecosistema de Inteligencia Artificial (Agentes, Contexto, Optimizadores & MCP)
 
 ### 1. Agentes de Código & CLIs Autónomos
 - **[Antigravity CLI (`agy`)](https://github.com/google/antigravity)**: Asistente y orquestador agentic avanzado desarrollado por Google DeepMind, con soporte multi-agente, ejecución de herramientas y contexto dinámico.
 - **[OpenCode](https://github.com/NickvanDyke/opencode.nvim)**: Agente autónomo de código abierto integrado con LLMs para refactorización, generación de tests y análisis en local.
 - **[Pi Agent](https://github.com/mizchi/pi)**: Agente interactivo ligero y modular para asistencia en terminal y pipelines de desarrollo.
 
-### 2. Optimización de Tokens & Contexto para Agentes
-- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: CLI ultrarrápido escrito en Rust para filtrar, compactar y resumir la salida de comandos (`cargo test`, `git log`, `pytest`, linters) reduciendo el consumo de tokens en la ventana de contexto de los agentes de IA entre un 60% y 90%.
+### 2. Extracción de Contexto de Repositorios & Reducción de Tokens
+- **[Graft](https://github.com/nanonets/graft)**: Herramienta CLI para transformar estructuras de repositorios y bases de código completas en contexto estructurado y digerible para LLMs y asistentes de IA.
+- **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: CLI ultrarrápido en Rust para filtrar, compactar y resumir la salida de comandos (`cargo test`, `git log`, `pytest`, linters) reduciendo el consumo de tokens entre un 60% y 90%.
+- **[Repomix](https://github.com/yamadashy/repomix)** (antes Repopack): Empaqueta repositorios enteros de código en un solo archivo Markdown/XML estructurado con conteo de tokens y mapeo de dependencias para modelos de lenguaje.
 
 ### 3. Protocolos de Contexto del Modelo (MCP Servers)
 - **[Engram MCP](https://github.com/gentleman-programming/engram)** (creado por Gentleman Programming / Gentle AI): Memoria semántica persistente y grafo de conocimiento histórico para sesiones de agentes.
@@ -119,7 +121,7 @@ sudo pacman -S \
 # 2. Paquetes desde AUR (vía yay)
 yay -S \
   mise-bin act-bin k6-bin tbls-bin atlas-bin bruno-bin fx \
-  zen-browser-bin obsidian
+  zen-browser-bin obsidian repomix
 
 # 3. Aplicaciones GUI (DbGate AppImage)
 mkdir -p ~/.local/bin
@@ -133,6 +135,8 @@ chmod +x ~/.local/bin/dbgate
 
 Este entorno y flujo de trabajo toma inspiración directa de excelentes proyectos de la comunidad:
 
+* **[Graft](https://github.com/nanonets/graft)**: Extracción y paquetización de contexto de repositorios para LLMs.
 * **[RTK (Reduce Tool Kit)](https://github.com/rtk-ai/rtk)**: Herramienta de optimización y reducción de contexto para agentes CLI de IA.
+* **[Repomix](https://github.com/yamadashy/repomix)**: Empaquetador de repositorios de código para prompts y análisis de IA.
 * **[gentle-ai](https://github.com/gentleman-programming/gentle-ai)** / **[gentleman-dots](https://github.com/gentleman-programming/gentleman.dots)**: Ecosistema de herramientas de IA, MCP servers ([Engram](https://github.com/gentleman-programming/engram), [Context7](https://github.com/gentleman-programming/context7), [CodeGraph](https://github.com/gentleman-programming/gentle-ai)) y configuración de Neovim/LazyVim de Alan Buscaglia (Gentleman Programming).
 * **[Mise-en-place](https://github.com/jdx/mise)**: Gestor de entornos y toolchains de Jeff Dickey.
