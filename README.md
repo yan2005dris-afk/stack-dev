@@ -4,7 +4,18 @@ Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / F
 
 ---
 
-## 💻 Aplicaciones de Escritorio & GUI
+## 💻 Entornos de Edición & IDEs
+
+### 1. IDEs Gráficos
+- **[Antigravity IDE](https://antigravity.google/)**: Entorno de desarrollo asistido por IA de próxima generación con integración nativa multi-agente, depuración contextual y ejecución segura de herramientas.
+- **[Zed](https://zed.dev/)**: Editor de código de alto rendimiento escrito en Rust, acelerado por GPU, diseñado para colaboración en tiempo real y flujo ultrarrápido.
+
+### 2. Editor de Terminal (TUI)
+- **[Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/)**: Configuración modular y extensible basada en Lua con gestión declarativa de plugins, LSP avanzado (`blink.cmp`), formateadores (`conform.nvim`), diagnósticos (`trouble.nvim`) y explorador modal (`oil.nvim`).
+
+---
+
+## 🖥️ Aplicaciones de Escritorio & GUI
 
 - **[DbGate](https://dbgate.org/)**: Cliente gráfico ágil y ligero para SQL y NoSQL (PostgreSQL, MySQL, Redis, MongoDB, SQLite).
 - **[Bruno](https://www.usebruno.com/)**: Cliente de APIs offline-first, seguro y Git-friendly (guarda colecciones en archivos planos).
@@ -90,7 +101,7 @@ Entorno de desarrollo moderno, modular y reproducible para Linux (Arch Linux / F
 ```bash
 # 1. Paquetes oficiales del sistema
 sudo pacman -S \
-  docker docker-compose lazygit git-delta github-cli \
+  neovim zed docker docker-compose lazygit git-delta github-cli \
   ripgrep fd bat eza fzf jq yq zoxide \
   httpie hyperfine trivy shellcheck hadolint pgcli grex \
   dust glow bun
